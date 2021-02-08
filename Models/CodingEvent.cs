@@ -29,4 +29,10 @@ namespace RestFul.Models {
 
     [Required] [NotNull] public DateTime Date { get; set; }
   }
+
+    // in the future---it's best practice to having separate DTO classes for distinct HTTP transactions...
+    public class UpdateCodingEventDto : NewCodingEventDto
+    {
+        public long Id { get; set; }
+    }
 }

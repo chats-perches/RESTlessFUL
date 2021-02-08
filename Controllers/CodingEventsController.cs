@@ -5,6 +5,7 @@ using RestFul.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Swashbuckle.AspNetCore.Annotations;
+using System;
 
 namespace RestFul.Controllers {
   [ApiController]
@@ -79,5 +80,47 @@ namespace RestFul.Controllers {
 
       return NoContent();
     }
+
+        [HttpPut]
+        [Route("{codingEventId}")]
+        public ActionResult EditCodingEvent([FromRoute] long codingEventId, [FromBody] UpdateCodingEventDto newCodingEventDto)
+        {
+
+            try
+            {
+                if (newCodingEventDto == null)
+                {
+                    //TODO : MAKE A _LOGGER...
+                    return BadRequest("Coding Event is null");
+                }
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest("Invalid model object");
+                }
+                var oldCodingEvent = _dbContext.CodingEvents.Find(codingEventId);
+                if (oldCodingEvent == null)
+                {
+                    return NotFound();
+                }
+
+                // TODO: MAKE A _MAPPER
+                // updating these fields manually is far from ideal...
+                // but hey... 'make it work, then make it better'
+                oldCodingEvent.Date = newCodingEventDto.Date;
+                oldCodingEvent.Title = newCodingEventDto.Title;
+                oldCodingEvent.Description = newCodingEventDto.Description;
+
+                _dbContext.SaveChanges();
+
+                return NoContent();
+            }
+
+            catch (Exception ex)
+            {
+
+                return StatusCode(500, "Internal server error");
+
+            }
+        }
   }
 }
