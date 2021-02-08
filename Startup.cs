@@ -10,71 +10,21 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 using Microsoft.EntityFrameworkCore;
 
 namespace RestFul
-{
-    /*    public class Startup
-        {
-            public Startup(IConfiguration configuration)
-            {
-                Configuration = configuration;
-            }
-
-            public IConfiguration Configuration { get; }
-
-            // This method gets called by the runtime. Use this method to add services to the container.
-            public void ConfigureServices(IServiceCollection services)
-            {
-                services.AddControllersWithViews();
-                // In production, the Angular files will be served from this directory
-                services.AddSpaStaticFiles(configuration =>
-                {
-                    configuration.RootPath = "ClientApp/dist";
-                });
-            }
-
-            // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-            public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-            {
-                if (env.IsDevelopment())
-                {
-                    app.UseDeveloperExceptionPage();
-                }
-                else
-                {
-                    app.UseExceptionHandler("/Error");
-                }
-
-                app.UseStaticFiles();
-                if (!env.IsDevelopment())
-                {
-                    app.UseSpaStaticFiles();
-                }
-
-                app.UseRouting();
-
-                app.UseEndpoints(endpoints =>
-                {
-                    endpoints.MapControllerRoute(
-                        name: "default",
-                        pattern: "{controller}/{action=Index}/{id?}");
-                });
-
-                app.UseSpa(spa =>
-                {
-                    // To learn more about options for serving an Angular SPA from ASP.NET Core,
-                    // see https://go.microsoft.com/fwlink/?linkid=864501
-
-                    spa.Options.SourcePath = "ClientApp";
-
-                    if (env.IsDevelopment())
-                    {
-                        spa.UseAngularCliServer(npmScript: "start");
-                    }
-                });
-            }
-        }*/
+{   
+    /*
+     FOLLOWING COMMENT is a plug for Angular SPA as way to manage the REST & Client CONTRACT...
+     */
+            // To learn more about options for serving an Angular SPA from ASP.NET Core,
+            // see https://go.microsoft.com/fwlink/?linkid=864501
+    /*END OF ADVERTISMENT*/
     public class Startup
     {
+        /*FIELDS: MyAllowSpecificOrigins, Configuration interface,
+         METHODS: Startup, ConfigureServices, Configure
+         */
+
         readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+        
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -82,16 +32,13 @@ namespace RestFul
 
         public IConfiguration Configuration { get; }
 
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors(options =>
             {
 
-/*                options.AddDefaultPolicy(
-                    builder => {
-                        builder.AllowAnyOrigin();
-                    });*/
                 options.AddDefaultPolicy(
                                   builder =>
                                   {
@@ -123,6 +70,7 @@ namespace RestFul
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /* much of the Swagger and comments of this Startup class are part of the starter code of the Coding Events API*/
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -138,7 +86,7 @@ namespace RestFul
             app.UseEndpoints(endpoints => {
 
 
-                endpoints.MapControllers();  //.RequireCors(MyAllowSpecificOrigins);
+                endpoints.MapControllers();
             });
 
             app.UseSwagger();
@@ -152,10 +100,6 @@ namespace RestFul
               }
             );
 
-
-            // app.UseCors(MyAllowSpecificOrigins);
-
-            // run migrations on startup
             var dbContext = app.ApplicationServices.CreateScope()
               .ServiceProvider.GetService<CodingEventsDbContext>();
             dbContext.Database.Migrate();
