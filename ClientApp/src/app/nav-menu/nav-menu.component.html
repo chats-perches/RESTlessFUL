@@ -25,7 +25,13 @@
             [routerLinkActive]="['link-active']"
             [routerLinkActiveOptions]="{ exact: true }"
           >
-            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+            <a class="nav-link text-dark" [routerLink]="['']">Coding Events</a>
+          </li>
+          <li
+            class="nav-item"
+            [routerLinkActive]="['link-active']"
+          >
+            <a class="nav-link text-dark" [routerLink]="['/home']">Home</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/counter']"

@@ -28,7 +28,8 @@ import { CodingEventsFormComponent } from './coding-events/coding-events-form/co
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: '', component: CodingEventsComponent, pathMatch: 'full'},
+      { path: 'home', component: HomeComponent },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
     ])
