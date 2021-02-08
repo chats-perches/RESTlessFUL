@@ -18,11 +18,11 @@ export class CodingEventService {
   }
 
   putCodingEvent(){
-    return this.http.put(`${this.baseURL}/${this.formData.eventId}`, this.formData);
+    return this.http.put(`${this.baseURL}/${this.formData.id}`, this.formData);
   }
 
-  deleteCodingEvent(id: number){
-    return this.http.delete(`${this.baseURL}/${id}`);
+  deleteCodingEvent(eventId: number){
+    return this.http.delete(`${this.baseURL}/${eventId}`);
   }
 
   refreshList(){

@@ -21,7 +21,7 @@ export class CodingEventsFormComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    if(this.service.formData.eventId==0){
+    if(this.service.formData.id==0){
       this.insertRecord(form);
     }
     else{
