@@ -1,0 +1,22 @@
+<p>coding-events works!</p>
+<table class="table">
+  <thead class="thead-light">
+      <tr>
+          <th>TITLE</th>
+          <th>DESCRIPTION</th>
+          <th>DATE</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tr *ngFor="let pd of service.list">
+      <td (click)="populateForm(pd)">{{pd.title}}</td>
+      <td (click)="populateForm(pd)">{{pd.description}}</td>
+      <td (click)="populateForm(pd)">{{pd.date}}</td>
+      <td>
+          <button class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.eventId)"></button>
+      </td>
+  </tr>
+
+<div>
+  <app-coding-events-form></app-coding-events-form>
+</div>

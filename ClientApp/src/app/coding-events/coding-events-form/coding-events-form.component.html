@@ -1,0 +1,28 @@
+<p>coding-events-form works!</p>
+
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+  <input type="hidden" name="eventId" [value]="service.formData.eventId" />
+  <div class="form-group">
+      <label>TITLE</label>
+      <input class="form-control form-control-lg" placeholder="Name of the event" name="title"
+          #title="ngModel" [(ngModel)]="service.formData.title"
+          required maxlength="100" minlength="10" [class.invalid]="title.invalid &#038;&#038; title.touched">
+  </div>
+  <div class="form-group">
+      <label>DESCRIPTION</label>
+      <input class="form-control form-control-lg" placeholder="Event details..." name="description"
+          #description="ngModel" [(ngModel)]="service.formData.description"
+          required maxlength="1000" minlength="2" [class.invalid]="description.invalid &#038;&#038; description.touched">
+  </div>
+  <div class="form-row">
+      <div class="form-group col-md-6">
+          <label>DATE</label>
+          <input class="form-control form-control-lg" placeholder="MM/YY" name="date"
+              #date="ngModel" [(ngModel)]="service.formData.date"
+              required maxlength="5" minlength="5" [class.invalid]="date.invalid &#038;&#038; date.touched">
+      </div>
+  </div>
+  <div class="form-group">
+      <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">SUBMIT</button>
+  </div>
+</form>
