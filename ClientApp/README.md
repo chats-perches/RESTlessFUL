@@ -5,9 +5,9 @@
 [Thank you...](https://www.codaffection.com/asp-net-core-article/angular-crud-with-asp-net-core-web-api/) 
 & [thank you, thank you...](https://code-maze.com/net-core-web-development-part6/)
 
-## RELEVANT STRUCTURE/COMPONENTS OF THE FRONT-END APP:
-
-● src
+## RELEVANT COMPONENTS OF THE FRONT-END:
+```
+src
 +---● app
 |   +--● coding-events
 |   |  |--coding-events.ts|.html
@@ -22,15 +22,13 @@
 |   |--app.module.ts
 |
 |--index.html (----for bootstrap & fa icons---if you really wanna)
+```
 
+## RELEVANT CLASSES OF THE BACK-END:
 
-## RELEVANT CLASSES OR SCHEMAS OF THE BACK-END APP:
-
-Startup.cs
-
-Controlers.CodingEventsController.cs
-
-Models.CodingEvent.cs
+- `Startup.cs`
+- `Controlers.CodingEventsController.cs`
+- `Models.CodingEvent.cs`
 
 t_h_a_t__i_s__i_t__f_o_r__t_h_e__b_a_c_k_-_e_n_d
 

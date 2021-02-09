@@ -11,6 +11,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { CodingEventsComponent } from './coding-events/coding-events.component';
 import { CodingEventsFormComponent } from './coding-events/coding-events-form/coding-events-form.component';
+import { TldrComponent } from './tldr/tldr.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CodingEventsFormComponent } from './coding-events/coding-events-form/co
     FetchDataComponent,
     CodingEventsComponent,
     CodingEventsFormComponent,
+    TldrComponent,
 
   ],
   imports: [
@@ -32,6 +34,7 @@ import { CodingEventsFormComponent } from './coding-events/coding-events-form/co
       { path: 'home', component: HomeComponent },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'tldr', component: TldrComponent}
     ])
   ],
   providers: [],

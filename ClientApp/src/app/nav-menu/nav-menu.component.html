@@ -20,6 +20,7 @@
         [ngClass]="{ show: isExpanded }"
       >
         <ul class="navbar-nav flex-grow">
+
           <li
             class="nav-item"
             [routerLinkActive]="['link-active']"
@@ -27,22 +28,27 @@
           >
             <a class="nav-link text-dark" [routerLink]="['']">Coding Events</a>
           </li>
-          <li
-            class="nav-item"
-            [routerLinkActive]="['link-active']"
-          >
-            <a class="nav-link text-dark" [routerLink]="['/home']">Home</a>
+
+          <li class="nav-item"[routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/home']">
+              <s>Home</s></a>
           </li>
+
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/counter']"
-              >Counter</a
-            >
+              ><s>Counter</s></a>
           </li>
+
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/fetch-data']"
-              >Fetch data</a
-            >
+              ><s>Fetch data</s></a>
           </li>
+
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/tldr']"
+              >_read_me</a>
+          </li>
+
         </ul>
       </div>
     </div>
