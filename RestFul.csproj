@@ -25,15 +25,6 @@
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Remove="Global.asax.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Remove="packages.config" />
-    <Content Remove="Web.config" />
-  </ItemGroup>
-
 	<ItemGroup>
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.2">
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -47,12 +38,6 @@
 
 	<ItemGroup>
 		<Folder Include="Data\Migrations" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Include="Global.asax.cs" />
-	  <None Include="packages.config" />
-	  <None Include="Web.config" />
 	</ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

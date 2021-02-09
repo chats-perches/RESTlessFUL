@@ -1,4 +1,5 @@
 {
+	//note that the PUT method for updates was added later and we got away with not registering it here :)
 	"info": {
 		"_postman_id": "e3fd71aa-2420-4ae9-8c97-077cc1676e11",
 		"name": "CodingEvents-SQLLite",
